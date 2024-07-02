@@ -6,6 +6,8 @@
     </head>
     <body>
         <script>
+             let humanScore = 0;
+             let computerScore = 0;
 
            
             
@@ -43,48 +45,45 @@
                 
                 if(humanChoice === computerChoice){
                     console.log("It's a tie");
-                    return 3
+                    humanScore++;
                 }else if(humanChoice == "rock" && computerChoice == "scissors") {
                     console.log("You win!");
-                    return  1
+                    humanScore++;
                 }else if(humanChoice == "paper" && computerChoice == "rock") {
                     console.log("You win!");
-                    return 1
+                    humanScore++;
                 }else if(humanChoice == "scissors" && computerChoice == "rock") {
                     console.log("You win!");
-                    return 1
+                    humanScore++;
                 }else{
                     console.log("Computer wins!");
-                    return 2
+                    computerScore++;
                 }
             }
 
             function playGame(){
-                let humanScore = 0;
-                let computerScore = 0;
+               
 
                 for(i=1; i < 6; i++){
                     const computerSelection = getComputerChoice();
                     const humanSelection =  getHumanChoice();
-                    let winner;
+                    
                     console.log("Computer picked: " + computerSelection);  
                     console.log("Human picked: " + humanSelection); 
-                    winnner = playRound(humanSelection,computerSelection);
-                    if(winner == 1){
+                    playRound(humanSelection,computerSelection);
+                    /*if(winner == 1){
                         humanScore+= 1;
+                        console.log("Human score is:" + humanScore);
                     }else if(winner == 2){ 
                         computerScore+=1;
-                    } 
-                    
-                
-                }
-                console.log("After game human score is: " + humanScore + " and computer score is " + computerScore);
+                        console.log("Computer score is:" + computerScore);
+                    } */
+                    console.log("After game "+ i + " human score is: " + humanScore + " and computer score is " + computerScore);
+                }    
             }
- 
-
 
             playGame();           
-  
+   
 
         </script>
 
